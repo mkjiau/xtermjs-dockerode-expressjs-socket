@@ -1,0 +1,16 @@
+version: "3"
+
+services:
+  web:
+    build: .
+    volumes:
+      - ./:/usr/src/app
+    ports:
+      - ${XTERMJS_PORT:3000}:3000
+    command: ["npm", "start"]
+
+  watch:
+    build: .
+    volumes:
+      - ./:/usr/src/app
+    command: ["npm", "run", "watch"]
